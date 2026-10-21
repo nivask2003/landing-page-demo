@@ -332,6 +332,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: clamp(12px, 1.8vw, 24px);
   height: 100%;
 }
 
@@ -340,6 +341,7 @@ button {
   align-items: center;
   gap: 12px;
   text-decoration: none;
+  flex-shrink: 0;
 }
 
 .brand-logo-icon {
@@ -352,11 +354,13 @@ button {
   justify-content: center;
   color: var(--color-turmeric);
   box-shadow: 0 4px 10px rgba(36, 75, 50, 0.2);
+  flex-shrink: 0;
 }
 
 .brand-text {
   display: flex;
   flex-direction: column;
+  white-space: nowrap;
 }
 
 .brand-title {
@@ -375,19 +379,32 @@ button {
   text-transform: uppercase;
 }
 
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-width: 0;
+  padding: 0 16px;
+}
+
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 28px;
+  justify-content: center;
+  gap: clamp(8px, 1.3vw, 20px);
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-link {
-  font-size: 0.95rem;
+  font-size: clamp(0.82rem, 0.9vw, 0.94rem);
   font-weight: 500;
   color: var(--color-charcoal);
   position: relative;
   padding: 6px 0;
+  white-space: nowrap; /* Prevents text from breaking into 2 lines */
 }
 
 .nav-link::after {
@@ -414,7 +431,15 @@ button {
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.nav-actions .btn-whatsapp {
+  white-space: nowrap;
+  padding: 8px 16px;
+  font-size: 0.86rem;
+  flex-shrink: 0;
 }
 
 .mobile-menu-toggle {
@@ -1741,8 +1766,8 @@ button {
    Responsive Breakpoints: Desktop, Tablet, Mobile & Small Mobile
    ========================================================================== */
 
-/* Tablet & Smaller Laptops (<= 1024px) */
-@media (max-width: 1024px) {
+/* Tablet & Smaller Laptops (<= 1060px) */
+@media (max-width: 1060px) {
   :root {
     --header-height: 72px;
   }
